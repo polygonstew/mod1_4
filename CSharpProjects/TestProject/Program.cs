@@ -1,58 +1,56 @@
-﻿
-// Decision logic challenge
+﻿// Do While Loop
 
-string permission = "Admin|Manager";
-int level = 55;
+Random random = new Random();
+int current = random.Next(1, 11);
 
-if (permission.Contains("Admin") && level >= 55)
+do
 {
-    Console.WriteLine("Welcome, Super Admin user.");
-}
-else if (permission.Contains("Admin") && level < 55)
-{ 
-    Console.WriteLine("Welcome, Admin user.");
-}
+    current = random.Next(1, 11);
 
-else if (permission.Contains("Manager") && level >= 20)
-{
-    Console.WriteLine("Contact an Admin for access.");
-}
-else if (permission.Contains("Manager") && level > 20)
-{ 
-    Console.WriteLine("You do not have sufficient privileges.");
-}
-if (!permission.Contains("Manager") && !permission.Contains("Admin"))
-{
-    Console.WriteLine("You do not have sufficient privileges.");
-}
+    if (current >= 8) continue;
 
-// LEARN: Correct Code
-//string permission = "Admin|Manager";
-//int level = 53;
+    Console.WriteLine(current);
+} while (current != 7);
 
-if (permission.Contains("Admin"))
+/*
+while (current >= 3)
 {
-    if (level > 55)
+    Console.WriteLine(current);
+    current = random.Next(1, 11);
+}
+Console.WriteLine($"Last number: {current}");
+*/string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringsCount = myStrings.Length;
+
+string myString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < stringsCount; i++)
+{
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    // extract sentences from each string and display them one at a time
+    while (periodLocation != -1)
     {
-        Console.WriteLine("Welcome, Super Admin user.");
+
+        // first sentence is the string value to the left of the period location
+        mySentence = myString.Remove(periodLocation);
+
+        // the remainder of myString is the string value to the right of the location
+        myString = myString.Substring(periodLocation + 1);
+
+        // remove any leading white-space from myString
+        myString = myString.TrimStart();
+
+        // update the comma location and increment the counter
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
     }
-    else
-    {
-        Console.WriteLine("Welcome, Admin user.");
-    }
-}
-else if (permission.Contains("Manager"))
-{
-    if (level >= 20)
-    {
-        Console.WriteLine("Contact an Admin for access.");
-    }
-    else
-    {
-        Console.WriteLine("You do not have sufficient privileges.");
-    }
-}
-else
-{
-    Console.WriteLine("You do not have sufficient privileges.");
+ 
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
 }
