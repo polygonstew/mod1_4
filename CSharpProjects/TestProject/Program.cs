@@ -1,10 +1,14 @@
-﻿Random rnum = new Random();
-int total = 0;
-int bob = rnum.Next(100);
+﻿// Conditional operator challenge
+Random randy = new Random();
+int rick = randy.Next(2) > 0 ? 10 : 20;
+if (rick == 10) {Console.WriteLine("Heads");} else {Console.WriteLine("Tails");} 
 
-Console.WriteLine($"Bob is {bob}");
-bob = rnum.Next(100);
-Console.Write("Name, please...");
-string name = Console.ReadLine();
-Console.WriteLine($"Hello, {name}... is that Latin?");
-Console.Write($"Well {name}, your number is {bob}");
+
+
+/*
+
+int saleAmount = 1001;
+int discount = saleAmount > 1000 ? 100 : 50;
+Console.WriteLine($"Discount: {discount}");
+
+*/
